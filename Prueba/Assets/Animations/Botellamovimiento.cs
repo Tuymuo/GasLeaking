@@ -2,12 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-
-public class movement : MonoBehaviour
+public class Botellamovimiento : MonoBehaviour
 {
     public float moveSpeed = 10f;
     public float offset;
