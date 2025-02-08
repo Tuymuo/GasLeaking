@@ -6,10 +6,11 @@ public class LockPickingMinigame : MonoBehaviour
 {
     public TextMeshProUGUI sequenceText; // El texto donde se muestra la secuencia
     public GameObject minigameUI; // UI del minijuego que incluye la secuencia de teclas
-    private string[] possibleKeys = { "A", "S", "D", "F" };
+    private string[] possibleKeys = { "G", "H", "J", "K" };
     private List<string> currentSequence = new List<string>();
     private int currentIndex = 0;
     private bool isPlaying = false;
+    public Animator thiefAnimator; // Asignar el Animator del personaje en el Inspector
 
     public TextMeshProUGUI bubbleText; // Texto dentro de la burbuja
 
@@ -77,15 +78,20 @@ public class LockPickingMinigame : MonoBehaviour
             EndMinigame(false);
         }
     }
-
-    void EndMinigame(bool success)
+    void EndMinigame(bool success)  
     {
-        isPlaying = false;
-        minigameUI.SetActive(false); // Ocultar el UI del minijuego
+    isPlaying = false;
+    minigameUI.SetActive(false); // Ocultar UI del minijuego
 
         if (success)
         {
             bubbleText.text = "¡Puerta desbloqueada!";
+        
+            // Cambio de animación a "Ladrón con saco"
+            if (thiefAnimator != null)
+            {
+                thiefAnimator.SetTrigger("CarryLoot");
+            }
         }
         else
         {
