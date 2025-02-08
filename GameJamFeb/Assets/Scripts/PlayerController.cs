@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
-    public float groundDist;
-    public LayerMask terrainLayer;
-    public Rigidbody rb;
-    public SpriteRenderer sr;
+    public float speed; // Velocidad del movimiento
+    public float groundDist; // Distancia desde el suelo (para ajustar la altura del jugador)
+    public LayerMask terrainLayer; // Capa del terreno
+    public Rigidbody rb; // Referencia al Rigidbody
+    public SpriteRenderer sr; // Referencia al SpriteRenderer
+    public Animator animator; // Referencia al Animator del jugador (para animaciones)
+    
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
     }
-
 
     // Update is called once per frame
     void Update()
@@ -22,28 +23,44 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         Vector3 castPos = transform.position;
         castPos.y += 1;
-        if(Physics.Raycast(castPos, -transform.up, out hit, Mathf.Infinity, terrainLayer))
+        if (Physics.Raycast(castPos, -transform.up, out hit, Mathf.Infinity, terrainLayer))
         {
-            if(hit.collider != null)
+            if (hit.collider != null)
             {
                 Vector3 movePos = transform.position;
                 movePos.y = hit.point.y + groundDist;
                 transform.position = movePos;
             }
         }
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
+
+        // Detectar el movimiento del jugador
+        float x = Input.GetAxis("Horizontal"); // Movimiento horizontal
+        float y = Input.GetAxis("Vertical"); // Movimiento vertical
         Vector3 moveDir = new Vector3(x, 0, y);
-        rb.velocity = moveDir*speed;
 
+        // Actualizar la velocidad del Rigidbody para el movimiento
+        rb.velocity = moveDir * speed;
 
-        if(x != 0 && x< 0)
+        // Cambiar la animación dependiendo si el jugador se está moviendo
+        if (x != 0 || y != 0)
         {
-            sr.flipX = true;
+            // Si hay movimiento, activamos la animación de caminar
+            animator.SetBool("IsWalking", true);
         }
-        else if (x != 0 && x>0)
+        else
         {
-            sr.flipX = false;
+            // Si no hay movimiento, activamos la animación de reposo
+            animator.SetBool("IsWalking", false);
+        }
+
+        // Cambiar la dirección del Sprite (si el jugador se mueve a la izquierda o derecha)
+        if (x != 0 && x < 0)
+        {
+            sr.flipX = true; // Girar el sprite si se mueve a la izquierda
+        }
+        else if (x != 0 && x > 0)
+        {
+            sr.flipX = false; // No girar el sprite si se mueve a la derecha
         }
     }
 }

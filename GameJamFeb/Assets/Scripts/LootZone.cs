@@ -8,7 +8,6 @@ public class LootZone : MonoBehaviour
     public Animator thiefAnimator; // Referencia al Animator del ladrón
     public GameObject lootZone; // Referencia al GameObject LootZone
     public CountdownManager countdownManager; // Referencia al script de la cuenta atrás
-    
 
     private void Start()
     {
