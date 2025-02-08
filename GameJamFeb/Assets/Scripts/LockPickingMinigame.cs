@@ -1,26 +1,29 @@
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 using System.Collections.Generic;
-using TMPro; // 🔹 Asegúrate de importar esto si usas TextMesh Pro
 
 public class LockPickingMinigame : MonoBehaviour
 {
-    public TextMeshProUGUI sequenceText;
-    //public TMP_Text sequenceText;
-    public GameObject minigameUI; // Panel de UI del minijuego
-    //public Text sequenceText; // Texto donde se muestra la secuencia de teclas
+    public TextMeshProUGUI sequenceText; // El texto donde se muestra la secuencia
+    public GameObject minigameUI; // UI del minijuego que incluye la secuencia de teclas
     private string[] possibleKeys = { "A", "S", "D", "F" };
     private List<string> currentSequence = new List<string>();
     private int currentIndex = 0;
+    private bool isPlaying = false;
+
+    public TextMeshProUGUI bubbleText; // Texto dentro de la burbuja
 
     void Start()
     {
-        minigameUI.SetActive(false);
+        minigameUI.SetActive(false); // Inicialmente ocultamos el minijuego
     }
 
     public void StartMinigame()
     {
-        minigameUI.SetActive(true);
+        if (isPlaying) return;
+
+        isPlaying = true;
+        minigameUI.SetActive(true); // Mostrar el minijuego
         GenerateSequence();
     }
 
@@ -31,33 +34,62 @@ public class LockPickingMinigame : MonoBehaviour
         {
             currentSequence.Add(possibleKeys[Random.Range(0, possibleKeys.Length)]);
         }
-        sequenceText.text = string.Join(" - ", currentSequence);
+
+        string sequenceString = string.Join(" - ", currentSequence);
+        sequenceText.text = sequenceString; // Mostrar la secuencia en el UI del minijuego
+        bubbleText.text = "Combinación: " + sequenceString; // Mostrar la secuencia en la burbuja
+
         currentIndex = 0;
-        Debug.Log("Secuencia generada: " + string.Join(" - ", currentSequence));  
+        Debug.Log("Secuencia generada: " + sequenceString);
     }
 
     void Update()
     {
-        if (minigameUI.activeSelf && currentIndex < currentSequence.Count)
+        if (!isPlaying) return;
+
+        if (Input.anyKeyDown)
         {
-            if (Input.anyKeyDown)
+            foreach (string key in possibleKeys)
             {
-                string keyPressed = Input.inputString.ToUpper();
-                if (keyPressed == currentSequence[currentIndex])
+                if (Input.GetKeyDown(key.ToLower()))
                 {
-                    currentIndex++;
-                    if (currentIndex == currentSequence.Count)
-                    {
-                        Debug.Log("¡Candado abierto!");
-                        minigameUI.SetActive(false);
-                    }
-                }
-                else
-                {
-                    Debug.Log("Error en la combinación.");
-                    minigameUI.SetActive(false);
+                    CheckInput(key);
+                    return;
                 }
             }
+        }
+    }
+
+    void CheckInput(string keyPressed)
+    {
+        if (keyPressed == currentSequence[currentIndex])
+        {
+            currentIndex++;
+            if (currentIndex == currentSequence.Count)
+            {
+                Debug.Log("¡Candado abierto!");
+                EndMinigame(true);
+            }
+        }
+        else
+        {
+            Debug.Log("Fallaste.");
+            EndMinigame(false);
+        }
+    }
+
+    void EndMinigame(bool success)
+    {
+        isPlaying = false;
+        minigameUI.SetActive(false); // Ocultar el UI del minijuego
+
+        if (success)
+        {
+            bubbleText.text = "¡Puerta desbloqueada!";
+        }
+        else
+        {
+            bubbleText.text = "Fallaste, intenta de nuevo.";
         }
     }
 }
