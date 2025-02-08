@@ -3,6 +3,7 @@ using UnityEngine;
 public class HouseInteraction : MonoBehaviour
 {
     private bool canInteract = false;
+    public LockPickingMinigame lockPickingMinigame; // 🔹 Añadimos la referencia pública al minijuego
 
     void OnTriggerEnter(Collider other)
     {
@@ -32,6 +33,13 @@ public class HouseInteraction : MonoBehaviour
     void StartLockPickingMinigame()
     {
         Debug.Log("Iniciando minijuego de cerraduras...");
-        // Aquí debes activar la UI del minijuego
+        if (lockPickingMinigame != null) // Evita errores si no está asignado
+        {
+            lockPickingMinigame.StartMinigame();
+        }
+        else
+        {
+            Debug.LogError("No se ha asignado el LockPickingMinigame en el Inspector.");
+        }
     }
 }
