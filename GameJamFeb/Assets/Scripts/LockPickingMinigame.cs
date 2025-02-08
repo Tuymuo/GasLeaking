@@ -1,11 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using TMPro; // 🔹 Asegúrate de importar esto si usas TextMesh Pro
 
 public class LockPickingMinigame : MonoBehaviour
 {
+    public TextMeshProUGUI sequenceText;
+    //public TMP_Text sequenceText;
     public GameObject minigameUI; // Panel de UI del minijuego
-    public Text sequenceText; // Texto donde se muestra la secuencia de teclas
+    //public Text sequenceText; // Texto donde se muestra la secuencia de teclas
     private string[] possibleKeys = { "A", "S", "D", "F" };
     private List<string> currentSequence = new List<string>();
     private int currentIndex = 0;
@@ -30,6 +33,7 @@ public class LockPickingMinigame : MonoBehaviour
         }
         sequenceText.text = string.Join(" - ", currentSequence);
         currentIndex = 0;
+        Debug.Log("Secuencia generada: " + string.Join(" - ", currentSequence));  
     }
 
     void Update()
