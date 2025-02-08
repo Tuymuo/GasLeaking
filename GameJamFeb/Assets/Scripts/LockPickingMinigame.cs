@@ -13,6 +13,8 @@ public class LockPickingMinigame : MonoBehaviour
     public Animator thiefAnimator; // Asignar el Animator del personaje en el Inspector
 
     public TextMeshProUGUI bubbleText; // Texto dentro de la burbuja
+    public GameObject lootZone; // Referencia a la LootZone en el Inspector
+
 
     void Start()
     {
@@ -78,24 +80,30 @@ public class LockPickingMinigame : MonoBehaviour
             EndMinigame(false);
         }
     }
-    void EndMinigame(bool success)  
+    void EndMinigame(bool success)
     {
-    isPlaying = false;
-    minigameUI.SetActive(false); // Ocultar UI del minijuego
+        isPlaying = false;
+        minigameUI.SetActive(false); // Ocultar UI del minijuego
 
         if (success)
         {
             bubbleText.text = "¡Puerta desbloqueada!";
         
+            // Activar la LootZone después de completar el minijuego
+            if (lootZone != null)
+            {
+                lootZone.SetActive(true);
+            }
+
             // Cambio de animación a "Ladrón con saco"
             if (thiefAnimator != null)
             {
                 thiefAnimator.SetTrigger("CarryLoot");
-            }
-        }
+            }   
+        }   
         else
         {
             bubbleText.text = "Fallaste, intenta de nuevo.";
         }
     }
-}
+}    
