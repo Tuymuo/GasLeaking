@@ -63,14 +63,20 @@ public class PlayerController : MonoBehaviour
             sr.enabled = true; // Muestra el sprite cuando vuelve a Idle o Walk
         }
 
-        // Cambiar la dirección del Sprite (si el jugador se mueve a la izquierda o derecha)
-        if (x != 0 && x < 0)
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("WalkingLoot"))
         {
-            sr.flipX = true; // Girar el sprite si se mueve a la izquierda
+            sr.flipX = rb.velocity.x < 0; // Girar en la dirección del movimiento
         }
-        else if (x != 0 && x > 0)
+        else
         {
-            sr.flipX = false; // No girar el sprite si se mueve a la derecha
+            if (x < 0)
+            {
+                sr.flipX = true; // Girar a la izquierda
+            }
+            else if (x > 0)
+            {
+                sr.flipX = false; // Girar a la derecha
+            }
         }
     }
 }
