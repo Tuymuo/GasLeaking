@@ -650,7 +650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1327994161}
-  thiefAnimator: {fileID: 0}
+  thiefAnimator: {fileID: 1232148908}
   lootZone: {fileID: 462366627}
   countdownManager: {fileID: 2002080801}
 --- !u!65 &462366629
@@ -1149,6 +1149,89 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &898067866
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cff029999aab1aa478948956d6ceedea,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.03217962
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cff029999aab1aa478948956d6ceedea,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.03217962
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cff029999aab1aa478948956d6ceedea,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.03217962
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cff029999aab1aa478948956d6ceedea,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.816
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cff029999aab1aa478948956d6ceedea,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cff029999aab1aa478948956d6ceedea,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.218
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cff029999aab1aa478948956d6ceedea,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.86902696
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cff029999aab1aa478948956d6ceedea,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cff029999aab1aa478948956d6ceedea,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.49476492
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cff029999aab1aa478948956d6ceedea,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cff029999aab1aa478948956d6ceedea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cff029999aab1aa478948956d6ceedea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -59.308
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cff029999aab1aa478948956d6ceedea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cff029999aab1aa478948956d6ceedea,
+        type: 3}
+      propertyPath: m_Name
+      value: camioneta_3d
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cff029999aab1aa478948956d6ceedea, type: 3}
 --- !u!1 &928217242
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,6 +1319,7 @@ GameObject:
   - component: {fileID: 958129844}
   - component: {fileID: 958129846}
   - component: {fileID: 958129845}
+  - component: {fileID: 958129847}
   m_Layer: 0
   m_Name: DoorTrigger
   m_TagString: Untagged
@@ -1296,6 +1380,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.27990466, y: 0.17310685, z: 0.33200526}
   m_Center: {x: -0.29037684, y: -0.029081179, z: -0.12005401}
+--- !u!114 &958129847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958129843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b22045fe017aea418362f42b96657d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sequenceText: {fileID: 1856886793}
+  minigameUI: {fileID: 579902573}
+  thiefAnimator: {fileID: 1232148908}
+  bubbleText: {fileID: 104167568}
+  lootZone: {fileID: 462366627}
 --- !u!1 &1232148903
 GameObject:
   m_ObjectHideFlags: 0
@@ -1468,7 +1569,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.21, y: 0.3}
+  m_Size: {x: 0.24, y: 0.3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -2146,7 +2247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sequenceText: {fileID: 1856886793}
   minigameUI: {fileID: 579902573}
-  thiefAnimator: {fileID: 0}
+  thiefAnimator: {fileID: 1232148908}
   bubbleText: {fileID: 104167568}
   lootZone: {fileID: 462366627}
 --- !u!114 &1691003259
@@ -2847,3 +2948,4 @@ SceneRoots:
   - {fileID: 2030681848}
   - {fileID: 893551894}
   - {fileID: 462366630}
+  - {fileID: 898067866}

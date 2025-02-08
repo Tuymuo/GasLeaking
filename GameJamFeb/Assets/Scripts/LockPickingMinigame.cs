@@ -16,6 +16,8 @@ public class LockPickingMinigame : MonoBehaviour
     public TextMeshProUGUI bubbleText; // Texto dentro de la burbuja
     public GameObject lootZone; // Referencia a la LootZone en el Inspector
 
+     private bool isMinigameActive = false;
+
 
     void Start()
     {
@@ -28,6 +30,7 @@ public class LockPickingMinigame : MonoBehaviour
 
         isPlaying = true;
         minigameUI.SetActive(true); // Mostrar el minijuego
+        thiefAnimator.SetTrigger("Robando"); // Cambia a la animación de robar
         GenerateSequence();
     }
 
@@ -99,7 +102,8 @@ public class LockPickingMinigame : MonoBehaviour
             // Cambio de animación a "Ladrón con saco"
             if (thiefAnimator != null)
             {
-                thiefAnimator.SetTrigger("CarryLoot");
+                thiefAnimator.SetTrigger("WalkingLoot"); // Cambia a la animación de caminar con botín
+
             }   
         }   
         else

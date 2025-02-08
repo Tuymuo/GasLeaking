@@ -52,6 +52,16 @@ public class PlayerController : MonoBehaviour
             // Si no hay movimiento, activamos la animación de reposo
             animator.SetBool("IsWalking", false);
         }
+        
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Robando") ||
+        animator.GetCurrentAnimatorStateInfo(0).IsName("WalkingLoot"))
+        {
+            sr.enabled = false; // Oculta el sprite cuando está en la animación
+        }
+        else
+        {
+            sr.enabled = true; // Muestra el sprite cuando vuelve a Idle o Walk
+        }
 
         // Cambiar la dirección del Sprite (si el jugador se mueve a la izquierda o derecha)
         if (x != 0 && x < 0)
