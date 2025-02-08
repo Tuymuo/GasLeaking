@@ -23,8 +23,8 @@ public class HouseInteraction : MonoBehaviour
         {
             canInteract = true;
             Dialogue.Show(DialogueText);
-            //interactionBubble.SetActive(true); // Mostrar la burbuja cuando el jugador esté cerca
-            //bubbleText.text = "Presiona 'E' para forzar la cerradura."; // Texto en la burbuja
+            interactionBubble.SetActive(true); // Mostrar la burbuja cuando el jugador esté cerca
+            bubbleText.text = "Presiona 'E' para forzar la cerradura."; // Texto en la burbuja
         }
     }
 
@@ -34,7 +34,7 @@ public class HouseInteraction : MonoBehaviour
         {
             canInteract = false;
            
-            //interactionBubble.SetActive(false); // Ocultar la burbuja cuando el jugador se aleje
+            interactionBubble.SetActive(false); // Ocultar la burbuja cuando el jugador se aleje
             Dialogue.Close();
         }
     }
