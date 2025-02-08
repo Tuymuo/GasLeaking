@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 
+
 public class LockPickingMinigame : MonoBehaviour
 {
     public TextMeshProUGUI sequenceText; // El texto donde se muestra la secuencia

@@ -11,7 +11,8 @@ public class LootZone : MonoBehaviour
 
     private void Start()
     {
-        UpdateScoreUI(); // Asegurar que el UI inicia en 0
+        score = PlayerPrefs.GetInt("TotalScore", 0); // Cargar puntuación guardada
+        UpdateScoreUI(); // Asegurar que el UI inicia correctamente
         lootZone.SetActive(false); // Desactivar la LootZone al inicio
     }
 
@@ -20,6 +21,9 @@ public class LootZone : MonoBehaviour
         if (other.CompareTag("Player")) // Si el jugador entra en la zona
         {
             score++; // Aumentar el contador de puntos
+            PlayerPrefs.SetInt("TotalScore", score); // Guardar puntuación en PlayerPrefs
+            PlayerPrefs.Save(); // Asegurar que se guarde correctamente
+
             UpdateScoreUI(); // Actualizar la UI de puntos
 
             // Añadir 15 segundos al contador de la cuenta atrás
