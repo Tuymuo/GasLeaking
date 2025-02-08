@@ -1,11 +1,10 @@
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UI;  // Necesario para trabajar con Slider
 using TMPro;
 
 public class CountdownManager : MonoBehaviour
 {
     public Slider countdownBar;  // Barra de progreso (Slider)
-    public TextMeshProUGUI timerText; // Texto  que mostrará los segundos restantes
     private float countdownTime = 30f;  // Tiempo de cuenta atrás inicial (en segundos)
     private bool isCountingDown = true;
 
@@ -15,7 +14,6 @@ public class CountdownManager : MonoBehaviour
     {
         countdownBar.maxValue = 1;  // Establece el máximo en 1 (barra llena)
         countdownBar.value = 1;  // Comienza con la barra llena
-       
     }
 
     void Update()
@@ -23,19 +21,20 @@ public class CountdownManager : MonoBehaviour
         if (isCountingDown)
         {
             countdownTime -= Time.deltaTime;  // Reducir el tiempo cada frame
-            countdownBar.value = countdownTime / 30f;  // Actualizar el valor de la barra
+
+            // Actualizar el valor de la barra para reflejar el tiempo restante
+            countdownBar.value = countdownTime / 30f;  // Rellenar la barra proporcionalmente
 
             if (countdownTime <= 0)
             {
                 countdownTime = 0;
                 isCountingDown = false;
-                
+                Debug.Log("¡Tiempo agotado!");
             }
-
-            
         }
     }
 
+    // Función para añadir tiempo cuando el ladrón entrega el botín
     public void AddTime(int additionalTime)
     {
         countdownTime += additionalTime;  // Añadir tiempo al contador
