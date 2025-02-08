@@ -24,7 +24,6 @@ public class HouseInteraction : MonoBehaviour
             canInteract = true;
             Dialogue.Show(DialogueText);
             interactionBubble.SetActive(true); // Mostrar la burbuja cuando el jugador esté cerca
-            bubbleText.text = "Presiona 'E' para forzar la cerradura."; // Texto en la burbuja
         }
     }
 

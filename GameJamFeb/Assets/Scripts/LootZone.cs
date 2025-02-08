@@ -35,7 +35,7 @@ public class LootZone : MonoBehaviour
             // Resetear animación del ladrón para que pueda robar otra vez
             if (thiefAnimator != null)
             {
-                thiefAnimator.SetTrigger("Reset");
+                thiefAnimator.SetTrigger("Idle");
             }
 
             // Desactivar la LootZone después de entregar el loot
