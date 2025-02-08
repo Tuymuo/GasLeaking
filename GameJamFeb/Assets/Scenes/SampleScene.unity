@@ -502,7 +502,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &579902574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,19 +738,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1448563072}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &865719356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 865719354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f9826048f264b24ca74420a5afc5f10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lockPickingMinigame: {fileID: 1691003258}
 --- !u!65 &865719357
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -817,7 +804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f9826048f264b24ca74420a5afc5f10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockPickingMinigame: {fileID: 0}
+  lockPickingMinigame: {fileID: 1691003258}
 --- !u!65 &1073939709
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1256,10 +1243,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: prueba
       objectReference: {fileID: 0}
+    - target: {fileID: -7030219592342931679, guid: aedc5472b1a4deb499e33d54bafc1138,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: aedc5472b1a4deb499e33d54bafc1138,
         type: 3}
       propertyPath: m_Name
       value: Casa
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aedc5472b1a4deb499e33d54bafc1138,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aedc5472b1a4deb499e33d54bafc1138,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1273,10 +1275,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 865719357}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aedc5472b1a4deb499e33d54bafc1138,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 865719356}
   m_SourcePrefab: {fileID: 100100000, guid: aedc5472b1a4deb499e33d54bafc1138, type: 3}
 --- !u!1 &1598602285
 GameObject:
@@ -1398,8 +1396,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b22045fe017aea418362f42b96657d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sequenceText: {fileID: 1856886793}
   minigameUI: {fileID: 579902573}
-  sequenceText: {fileID: 0}
 --- !u!114 &1691003259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1430,7 +1428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 16
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
@@ -1500,7 +1498,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1856886792
 RectTransform:
   m_ObjectHideFlags: 0
