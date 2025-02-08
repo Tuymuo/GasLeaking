@@ -16,7 +16,7 @@ public class LockPickingMinigame : MonoBehaviour
     public TextMeshProUGUI bubbleText; // Texto dentro de la burbuja
     public GameObject lootZone; // Referencia a la LootZone en el Inspector
 
-     private bool isMinigameActive = false;
+    
 
 
     void Start()
@@ -30,9 +30,10 @@ public class LockPickingMinigame : MonoBehaviour
 
         isPlaying = true;
         minigameUI.SetActive(true); // Mostrar el minijuego
-        thiefAnimator.SetTrigger("Robando"); // Cambia a la animación de robar
+        thiefAnimator.SetTrigger("Robando"); // Iniciar animación de "Robando"
         GenerateSequence();
     }
+
 
     void GenerateSequence()
     {
