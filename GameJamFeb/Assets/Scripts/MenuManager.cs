@@ -10,7 +10,7 @@ public class MenuManager : MonoBehaviour
     void Start()
     {
         int finalScore = PlayerPrefs.GetInt("TotalScore", 0); // Obtener la puntuación guardada
-        finalScoreText.text = "Puntuación Final: " + finalScore; // Mostrarla en la UI
+        finalScoreText.text = " " + finalScore; // Mostrarla en la UI
     }
 
     // Función para reiniciar el juego
