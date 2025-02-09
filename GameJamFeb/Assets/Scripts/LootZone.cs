@@ -44,6 +44,7 @@ public class LootZone : MonoBehaviour
             {
                 lootZone.SetActive(false);
             }
+            countdownManager.IncreaseSpeed(); // Aumentar la velocidad de la cuenta atrás
 
             Debug.Log("Punto agregado. Volver a robar.");
         }
@@ -58,7 +59,7 @@ public class LootZone : MonoBehaviour
         if (countdownManager != null)
         {
             countdownManager.AddTime(1); // Añadir 1 segundo al contador
-            countdownManager.IncreaseSpeed(); // Aumentar la velocidad de la cuenta atrás
+            
             Debug.Log("Velocidad de cuenta atrás aumentada.");
         }
         else
