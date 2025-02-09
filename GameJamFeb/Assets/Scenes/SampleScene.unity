@@ -10215,7 +10215,7 @@ GameObject:
   m_Layer: 0
   m_Name: SpwanZone
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -10232,15 +10232,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoints:
-  - {fileID: 447679971}
-  - {fileID: 447679971}
-  - {fileID: 447679971}
-  - {fileID: 447679971}
-  - {fileID: 447679971}
-  - {fileID: 447679971}
-  - {fileID: 447679971}
-  - {fileID: 447679971}
-  - {fileID: 447679971}
   - {fileID: 447679971}
   pickupPrefab: {fileID: 1647566921}
 --- !u!65 &1195506696
