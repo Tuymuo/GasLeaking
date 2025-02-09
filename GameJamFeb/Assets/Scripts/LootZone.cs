@@ -48,6 +48,15 @@ public class LootZone : MonoBehaviour
         }
     }
 
+    public void AddPoint()
+    {
+        score++; // Aumentar puntuación
+        PlayerPrefs.SetInt("", score); // Guardar la puntuación
+        PlayerPrefs.Save();
+        UpdateScoreUI(); // Actualizar UI
+    }
+
+
     void UpdateScoreUI()
     {
         if (scoreText != null)
