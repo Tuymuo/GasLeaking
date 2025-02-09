@@ -13,7 +13,6 @@ public class DialogueWindow : MonoBehaviour
     {
         Group = GetComponent<CanvasGroup>();
         Group.alpha =0;
-        
     }
 
     public void Show (string text){
