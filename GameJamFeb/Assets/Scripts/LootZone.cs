@@ -8,6 +8,7 @@ public class LootZone : MonoBehaviour
     public Animator thiefAnimator; // Referencia al Animator del ladrón
     public GameObject lootZone; // Referencia al GameObject LootZone
     public CountdownManager countdownManager; // Referencia al script de la cuenta atrás
+    
 
     private void Start()
     {
@@ -51,10 +52,23 @@ public class LootZone : MonoBehaviour
     public void AddPoint()
     {
         score++; // Aumentar puntuación
-        PlayerPrefs.SetInt("", score); // Guardar la puntuación
-        PlayerPrefs.Save();
-        UpdateScoreUI(); // Actualizar UI
+        PlayerPrefs.SetInt("TotalScore", score); // Guardar la puntuación
+        PlayerPrefs.Save(); // Guardar datos
+
+        if (countdownManager != null)
+        {
+            countdownManager.AddTime(1); // Añadir 1 segundo al contador
+            countdownManager.IncreaseSpeed(); // Aumentar la velocidad de la cuenta atrás
+            Debug.Log("Velocidad de cuenta atrás aumentada.");
+        }
+        else
+        {
+            Debug.LogError("countdownManager no está asignado en LootZone.");
+        }
+
+        UpdateScoreUI(); // Actualizar UI de puntuación
     }
+
 
 
     void UpdateScoreUI()

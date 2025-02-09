@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;  // Necesario para cargar nuevas escenas
 public class CountdownManager : MonoBehaviour
 {
     public Slider countdownBar;  // Barra de progreso (Slider)
-    private float countdownTime = 30f;  // Tiempo de cuenta atrás inicial (en segundos)
+    private float countdownTime = 60f;  // Tiempo de cuenta atrás inicial (en segundos)
     private bool isCountingDown = true;
     private float speedMultiplier = 1f;  // Multiplicador de velocidad para hacer que el tiempo pase más rápido
 
@@ -25,7 +25,8 @@ public class CountdownManager : MonoBehaviour
             countdownTime -= Time.deltaTime * speedMultiplier;  // Reducir el tiempo más rápido
 
             // Actualizar el valor de la barra para reflejar el tiempo restante
-            countdownBar.value = countdownTime / 30f;  // Rellenar la barra proporcionalmente
+            countdownBar.value = countdownTime / 60f;  // Rellenar la barra proporcionalmente
+            
 
             if (countdownTime <= 0)
             {
@@ -41,9 +42,9 @@ public class CountdownManager : MonoBehaviour
     public void AddTime(int additionalTime)
     {
         countdownTime += additionalTime;  // Añadir tiempo al contador
-        if (countdownTime > 30) 
+        if (countdownTime > 60) 
         {
-            countdownTime = 30;  // Limitar el máximo a 30 segundos
+            countdownTime = 60;  // Limitar el máximo a 30 segundos
         }
 
         // Reiniciar el temporizador si es necesario para continuar contando
