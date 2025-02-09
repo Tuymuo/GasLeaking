@@ -57,7 +57,7 @@ public class CountdownManager : MonoBehaviour
     // Llamada desde LootZone para aumentar la velocidad de la cuenta atrás
     public void IncreaseSpeed()
     {
-        speedMultiplier += 0.2f;  // Aumentar la velocidad de la cuenta atrás (puedes ajustar este valor)
+        speedMultiplier += 0.5f;  // Aumentar la velocidad de la cuenta atrás (puedes ajustar este valor)
         Debug.Log("La velocidad de la cuenta atrás ha aumentado. Nueva velocidad: " + speedMultiplier);
     }
 
