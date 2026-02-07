@@ -1,33 +1,30 @@
 using UnityEngine;
 using Unity.Cinemachine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class StaticShakeCamera : MonoBehaviour
 {
-    [Header("Camera References")]
+    [Header("Cámaras")]
     [SerializeField] private CinemachineCamera mainCamera;
     [SerializeField] private CinemachineCamera staticShakeCamera;
 
-    [Header("Player Reference")]
-    [SerializeField] private MonoBehaviour playerMovementScript;
+    [Header("Estado del marciano")]
+    [SerializeField] private ActivarMatarMarciano marcianoState;
 
-    [Header("External Condition")]
-    [SerializeField] private MonoBehaviour conditionScript;
-    [SerializeField] private string conditionFieldName = "matarMarciano";
-
-    [Header("Activation")]
-    [SerializeField] private float activationDelay = 1.5f;
-
-    [Header("Shake Settings")]
+    [Header("Zoom & Shake")]
+    [SerializeField] private float zoomedFOV = 40f;
     [SerializeField] private float shakeAmplitude = 1.5f;
     [SerializeField] private float shakeFrequency = 2f;
     [SerializeField] private NoiseSettings noiseProfile;
 
-    [Header("Zoom Settings")]
-    [SerializeField] private float zoomedFOV = 40f;
+    [Header("Duración zoom antes de transición")]
+    [SerializeField] private float duracionZoom = 3f;
 
-    private bool isStaticCameraActive = false;
-    private bool alreadyTriggered = false;
+    [Header("Escena siguiente")]
+    [SerializeField] private string sceneName;
+
+    private bool triggered = false;
     private CinemachineBasicMultiChannelPerlin shakeComponent;
 
     private void Start()
@@ -42,42 +39,32 @@ public class StaticShakeCamera : MonoBehaviour
 
         mainCamera.Priority.Value = 10;
         staticShakeCamera.Priority.Value = 5;
-
-        var lens = staticShakeCamera.Lens;
-        lens.FieldOfView = zoomedFOV;
-        staticShakeCamera.Lens = lens;
     }
 
     private void Update()
     {
-        if (alreadyTriggered || conditionScript == null) return;
-
-        var field = conditionScript.GetType().GetField(conditionFieldName);
-        if (field != null && field.FieldType == typeof(bool))
+        if (!triggered && marcianoState.matarMarciano)
         {
-            bool value = (bool)field.GetValue(conditionScript);
-            if (value)
-            {
-                alreadyTriggered = true;
-                StartCoroutine(ActivateAfterDelay());
-            }
+            triggered = true;
+            StartCoroutine(ActivateZoomSequence());
         }
     }
 
-    private IEnumerator ActivateAfterDelay()
+    private IEnumerator ActivateZoomSequence()
     {
-        yield return new WaitForSeconds(activationDelay);
-        ActivateStaticCamera();
-    }
-
-    private void ActivateStaticCamera()
-    {
-        isStaticCameraActive = true;
-
+        // 1️⃣ Cambiar a cámara estática
         mainCamera.Priority.Value = 5;
         staticShakeCamera.Priority.Value = 10;
 
-        if (playerMovementScript != null)
-            playerMovementScript.enabled = false;
+        // 2️⃣ Aplicar zoom (FOV)
+        var lens = staticShakeCamera.Lens;
+        lens.FieldOfView = zoomedFOV;
+        staticShakeCamera.Lens = lens;
+
+        // 3️⃣ Esperar duración del zoom
+        yield return new WaitForSeconds(duracionZoom);
+
+        // 4️⃣ Cambiar escena
+        SceneManager.LoadScene(sceneName);
     }
 }
