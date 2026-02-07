@@ -834,8 +834,8 @@ Transform:
   m_LocalScale: {x: 0.15545377, y: 0.15545377, z: 0.1124537}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2034353795}
   - {fileID: 661579521}
+  - {fileID: 2034353795}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 70, y: 0, z: 0}
 --- !u!1 &539326600
@@ -936,6 +936,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
   dialogueBubble: {fileID: 2034353794}
+  dialogueTextMesh: {fileID: 2017319020}
+  mainCamera: {fileID: 0}
+  dialogueText: Esto es una prueba de Dialogo
+  letterDelay: 0.09
+  zoomDistance: 2
+  zoomSpeed: 2
+  lockZ: 1
 --- !u!1 &690121181
 GameObject:
   m_ObjectHideFlags: 0
@@ -2046,8 +2053,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<speed=0.03>\xBFO\xEDste eso...? <pause=0.5>\r\n<shake><color=red>Algo
-    se mueve</color></shake>"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2074,8 +2080,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
