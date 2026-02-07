@@ -5,8 +5,6 @@ TagManager:
   serializedVersion: 3
   tags:
   - Terrain
-  - Background-Cielo
-  - Background-nubes
   layers:
   - Default
   - TransparentFX
