@@ -5,23 +5,26 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     [Header("Referencias")]
-    [SerializeField] private GameObject dialogueBubble; // Burbuja
-    [SerializeField] private TMP_Text dialogueTextMesh; // TMP 3D dentro de la burbuja
-    [SerializeField] private Camera mainCamera;         // Cámara principal
+    [SerializeField] private GameObject dialogueBubble;
+    [SerializeField] private TMP_Text dialogueTextMesh;
+    [SerializeField] private Camera mainCamera;
 
     [Header("Diálogo")]
-    [TextArea]
-    [SerializeField] private string dialogueText;
+    [TextArea(3, 10)]
+    [SerializeField] private string dialogueText; // TEXTO ÚNICO (multilínea)
     [SerializeField] private float letterDelay = 0.05f;
+    [SerializeField] private float lineDelay = 1.2f;
 
     [Header("Zoom")]
-    [SerializeField] private float zoomDistance = 2f; // qué tan cerca de la piedra
-    [SerializeField] private float zoomSpeed = 2f;    // velocidad del zoom
-    [SerializeField] private bool lockZ = true;       // mantener Z original para 2.5D lateral
+    [SerializeField] private float zoomDistance = 2f;
+    [SerializeField] private float zoomSpeed = 2f;
+    [SerializeField] private bool lockZ = true;
 
-    private Coroutine typingCoroutine;
+    private string[] lines;
+    private Coroutine dialogueCoroutine;
     private Coroutine zoomCoroutine;
     private Vector3 originalCameraPosition;
+    private bool playerInside = false;
 
     private void Awake()
     {
@@ -32,18 +35,20 @@ public class DialogueTrigger : MonoBehaviour
             mainCamera = Camera.main;
 
         originalCameraPosition = mainCamera.transform.position;
+
+        // Divide el texto por líneas (compatible con Windows / Mac)
+        lines = dialogueText.Split(new[] { "\r\n", "\n" }, System.StringSplitOptions.RemoveEmptyEntries);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player")) return;
+        if (!other.CompareTag("Player") || playerInside) return;
 
-        // Mostrar burbuja y typewriter
+        playerInside = true;
         dialogueBubble.SetActive(true);
-        if (typingCoroutine != null) StopCoroutine(typingCoroutine);
-        typingCoroutine = StartCoroutine(TypeText());
 
-        // Zoom hacia la piedra
+        dialogueCoroutine = StartCoroutine(PlayDialogue());
+
         if (zoomCoroutine != null) StopCoroutine(zoomCoroutine);
         zoomCoroutine = StartCoroutine(SmoothZoom(GetZoomPosition(), zoomSpeed));
     }
@@ -51,46 +56,52 @@ public class DialogueTrigger : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (!other.CompareTag("Player")) return;
+        ResetDialogue();
+    }
 
-        // Ocultar burbuja y finalizar typewriter
-        dialogueBubble.SetActive(false);
-        if (typingCoroutine != null)
+    private IEnumerator PlayDialogue()
+    {
+        foreach (string line in lines)
         {
-            StopCoroutine(typingCoroutine);
-            typingCoroutine = null;
-        }
-        dialogueTextMesh.text = dialogueText;
+            dialogueTextMesh.text = "";
 
-        // Zoom de regreso
+            foreach (char c in line)
+            {
+                dialogueTextMesh.text += c;
+                yield return new WaitForSeconds(letterDelay);
+            }
+
+            yield return new WaitForSeconds(lineDelay);
+        }
+
+        ResetDialogue();
+    }
+
+    private void ResetDialogue()
+    {
+        playerInside = false;
+
+        if (dialogueCoroutine != null)
+            StopCoroutine(dialogueCoroutine);
+
+        dialogueBubble.SetActive(false);
+        dialogueTextMesh.text = "";
+
         if (zoomCoroutine != null) StopCoroutine(zoomCoroutine);
         zoomCoroutine = StartCoroutine(SmoothZoom(originalCameraPosition, zoomSpeed));
     }
 
-    private IEnumerator TypeText()
+    private Vector3 GetZoomPosition()
     {
-        dialogueTextMesh.text = "";
-        foreach (char c in dialogueText)
-        {
-            dialogueTextMesh.text += c;
-            yield return new WaitForSeconds(letterDelay);
-        }
+        Transform target = transform.parent != null ? transform.parent : transform;
+        Vector3 direction = (target.position - mainCamera.transform.position).normalized;
+        Vector3 pos = mainCamera.transform.position + direction * zoomDistance;
+
+        if (lockZ)
+            pos.z = mainCamera.transform.position.z;
+
+        return pos;
     }
-
-   private Vector3 GetZoomPosition()
-{
-    // Usa la posición de la piedra (parent del TriggerZone)
-    Transform stone = transform.parent != null ? transform.parent : transform;
-
-    // Dirección desde cámara hacia piedra
-    Vector3 direction = (stone.position - mainCamera.transform.position).normalized;
-
-    // Solo movemos X y Y para 2.5D lateral
-    Vector3 target = mainCamera.transform.position + direction * zoomDistance;
-    target.z = mainCamera.transform.position.z; // mantiene Z fijo
-
-    return target;
-}
-
 
     private IEnumerator SmoothZoom(Vector3 targetPos, float speed)
     {
@@ -100,22 +111,11 @@ public class DialogueTrigger : MonoBehaviour
         while (t < 1f)
         {
             t += Time.deltaTime * speed;
-            t = Mathf.SmoothStep(0f, 1f, t); // easing suave
+            t = Mathf.SmoothStep(0f, 1f, t);
             mainCamera.transform.position = Vector3.Lerp(startPos, targetPos, t);
             yield return null;
         }
 
         mainCamera.transform.position = targetPos;
-    }
-
-    // Opcional: método público para saltar el typewriter
-    public void SkipTyping()
-    {
-        if (typingCoroutine != null)
-        {
-            StopCoroutine(typingCoroutine);
-            typingCoroutine = null;
-            dialogueTextMesh.text = dialogueText;
-        }
     }
 }
