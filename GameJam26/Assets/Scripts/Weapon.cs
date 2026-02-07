@@ -4,6 +4,9 @@ public class Weapon : MonoBehaviour
 {
     public Transform shootingPoint;
     public GameObject bulletPrefab;
+
+
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -15,5 +18,6 @@ public class Weapon : MonoBehaviour
     void Shoot()
     {
         Instantiate(bulletPrefab, shootingPoint.position, shootingPoint.rotation);
+
     }
 }
