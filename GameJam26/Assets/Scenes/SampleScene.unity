@@ -1443,7 +1443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 995d3f236b5743440bf13e3365ffb0a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 3
 --- !u!95 &786942053
 Animator:
   serializedVersion: 7
@@ -1523,6 +1523,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 165702159793570224, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632217775418487086, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0000013726701
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632217775418487086, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9981386
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632217775418487086, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.060986612
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632217775418487086, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.00000011920929
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632217775418487086, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.0000012851144
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632217775418487086, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -6.993
+      objectReference: {fileID: 0}
+    - target: {fileID: 1991802991442687205, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
+      propertyPath: dialogueText
+      value: "\nEsta piedra es extra\xF1a...\r\nSiento algo raro al acercarme.\r\nNo
+        deber\xEDa tocarla.\r\nPero ya es demasiado tarde.\nEsta piedra es extra\xF1a...\r\nSiento
+        algo raro al acercarme.\r\nNo deber\xEDa tocarla.\r\nPero ya es demasiado
+        tarde."
+      objectReference: {fileID: 0}
     - target: {fileID: 2144039770042806724, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
       propertyPath: m_LocalPosition.z
       value: 7.5
@@ -1557,7 +1592,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6374218384968951150, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.8
+      value: -2.8000014
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374218384968951150, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9851042
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374218384968951150, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.17195834
       objectReference: {fileID: 0}
     - target: {fileID: 6374218384968951150, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1566,6 +1609,10 @@ PrefabInstance:
     - target: {fileID: 6374218384968951150, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 8.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374218384968951150, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -19.803
       objectReference: {fileID: 0}
     - target: {fileID: 6426384786108913236, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
       propertyPath: m_Pivot.x
@@ -1609,15 +1656,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6426384786108913236, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.82
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: 6426384786108913236, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.8191521
       objectReference: {fileID: 0}
     - target: {fileID: 6426384786108913236, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.7071068
+      value: 0.5735764
       objectReference: {fileID: 0}
     - target: {fileID: 6426384786108913236, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
       propertyPath: m_LocalRotation.y
@@ -1633,11 +1680,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6426384786108913236, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.48
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 6426384786108913236, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 6426384786108913236, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -1657,7 +1704,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8148282486740719661, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
       propertyPath: m_Size.y
-      value: 3.0831203
+      value: 1.8921002
       objectReference: {fileID: 0}
     - target: {fileID: 8148282486740719661, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
       propertyPath: m_Size.z
@@ -1669,11 +1716,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8148282486740719661, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
       propertyPath: m_Center.y
-      value: 0.893197
+      value: 1.4887092
       objectReference: {fileID: 0}
     - target: {fileID: 8148282486740719661, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
       propertyPath: m_Center.z
-      value: -1.9133092
+      value: -1.914569
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2045,7 +2092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6426384786108913236, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.15
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 6426384786108913236, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2065,11 +2112,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6426384786108913236, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 18.3
+      value: -1.71
       objectReference: {fileID: 0}
     - target: {fileID: 6426384786108913236, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.2
+      value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 6426384786108913236, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2143,7 +2190,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 50.4
-    OrthographicSize: 2.71
+    OrthographicSize: 3.01
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
