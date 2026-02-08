@@ -20,17 +20,21 @@ public class CinematicInteraction : MonoBehaviour
     private void Awake()
     {
         cinematicCanvas.SetActive(false);
-        video.Pause();
+
+        if (video != null)
+            video.Pause();
     }
 
     private void Update()
     {
         if (hasPlayed) return;
+        if (player == null || activationObject == null) return;
 
         float distance = Vector3.Distance(player.position, activationObject.position);
 
         if (distance <= activationRadius && Input.GetKeyDown(interactionKey))
         {
+            Debug.Log($"Interaction key {interactionKey} pressed!");
             PlayCinematic();
         }
     }
@@ -38,13 +42,21 @@ public class CinematicInteraction : MonoBehaviour
     private void PlayCinematic()
     {
         hasPlayed = true;
-        cinematicCanvas.SetActive(true);
-        video.Play();
-        video.loopPointReached += OnVideoFinished;
+
+        if (cinematicCanvas != null)
+            cinematicCanvas.SetActive(true);
+
+        if (video != null)
+        {
+            video.loopPointReached += OnVideoFinished;
+            video.Play();
+        }
     }
 
     private void OnVideoFinished(VideoPlayer vp)
     {
+        vp.loopPointReached -= OnVideoFinished; // desuscribir
         SceneManager.LoadScene(nextScene);
+        Time.timeScale = 1f;
     }
 }

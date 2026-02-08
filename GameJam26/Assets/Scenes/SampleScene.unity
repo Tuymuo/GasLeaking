@@ -3381,7 +3381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1183238738125967878, guid: a54d2aa67e29e9444a84511512a16e6e, type: 3}
       propertyPath: activationRadius
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1183238738125967878, guid: a54d2aa67e29e9444a84511512a16e6e, type: 3}
       propertyPath: activationSprite
@@ -3471,6 +3471,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Cinem\xE1ticaYTransicion"
       objectReference: {fileID: 0}
+    - target: {fileID: 6862853319511399827, guid: a54d2aa67e29e9444a84511512a16e6e, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 7508116029829013123, guid: a54d2aa67e29e9444a84511512a16e6e, type: 3}
       propertyPath: video
       value: 
@@ -3489,7 +3493,7 @@ PrefabInstance:
       objectReference: {fileID: 1677546106}
     - target: {fileID: 7508116029829013123, guid: a54d2aa67e29e9444a84511512a16e6e, type: 3}
       propertyPath: activationRadius
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7984785916055891265, guid: a54d2aa67e29e9444a84511512a16e6e, type: 3}
       propertyPath: m_LocalScale.x
