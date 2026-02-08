@@ -11,7 +11,8 @@ public class ActivarMatarMarciano : MonoBehaviour
     [SerializeField] private float radio = 2f;
     [SerializeField] private KeyCode tecla = KeyCode.E;
     [SerializeField] private float delayAntesActivar = 2f;
-    [SerializeField] private AudioSource audiosource;
+    public AudioSource audiosource;
+    public GameObject music;
 
     [Header("Opcional: Offset de activación")]
     [SerializeField] private Vector3 offsetMarciano = Vector3.zero;
@@ -41,6 +42,7 @@ public class ActivarMatarMarciano : MonoBehaviour
             if (Input.GetKeyDown(tecla))
             {
                 audiosource.Play();
+                Destroy(music);
                 StartCoroutine(ActivateAfterDelay());
             }
         }
