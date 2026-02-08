@@ -2529,7 +2529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 175762311}
   activationRadius: 3
-  activationSprite: {fileID: 282404076}
+  activationSprite: {fileID: 282404077}
   fadeTime: 0.25
   scaleTime: 0.25
 --- !u!114 &1429585945
