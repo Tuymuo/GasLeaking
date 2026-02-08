@@ -1515,7 +1515,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!1001 &922801007
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1684,8 +1683,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
-=======
->>>>>>> parent of 11eac06 (romper:proyecto)
 --- !u!1 &997179913
 GameObject:
   m_ObjectHideFlags: 0
@@ -1998,7 +1995,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
-<<<<<<< HEAD
 --- !u!1001 &1346117296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2103,8 +2099,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: f7c390340824c2b4b9594f2ca75a6d11, type: 3}
-=======
->>>>>>> parent of 11eac06 (romper:proyecto)
 --- !u!1 &1467574839
 GameObject:
   m_ObjectHideFlags: 0
@@ -3410,9 +3404,3 @@ SceneRoots:
   - {fileID: 1346117296}
   - {fileID: 922801007}
   - {fileID: 1698237768}
-<<<<<<< HEAD
-=======
-  - {fileID: 184247570}
-  - {fileID: 470382178}
-  - {fileID: 1502874615}
->>>>>>> parent of 11eac06 (romper:proyecto)
