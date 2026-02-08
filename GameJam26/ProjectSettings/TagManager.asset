@@ -7,6 +7,7 @@ TagManager:
   - Terrain
   - Undefined
   - NPC
+  - Background-Cielo
   layers:
   - Default
   - TransparentFX
@@ -46,6 +47,12 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 597531763
+    locked: 0
+  - name: Edificios
+    uniqueID: 2612517415
+    locked: 0
+  - name: Turba
+    uniqueID: 2371463021
     locked: 0
   m_RenderingLayers:
   - Default
